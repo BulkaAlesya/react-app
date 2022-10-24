@@ -1,0 +1,15 @@
+.counter-container {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  margin: 0 auto;
+}
+.counter-container p {
+    font-size: 20px
+  }
+.action-button {
+  width: 25px;
+  height: 25px;
+  font-size: 20px;
+  margin-top: 20px;
+}
