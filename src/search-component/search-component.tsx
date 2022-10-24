@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import './search.css';
 
-class SearchComponent extends React.Component {
-  constructor(props) {
+class SearchComponent extends React.Component<SearchComponentProps, SearchComponentState> {
+  constructor(props: SearchComponentProps) {
     super(props);
     this.state = { searchValue: '', addedText: '' };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleButtonAction = this.handleButtonAction.bind(this);
   }
 
-  handleInputChange(event) {
+  handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     this.setState({ searchValue: event.target.value });
   }
 
@@ -33,4 +33,7 @@ class SearchComponent extends React.Component {
     );
   }
 }
+
+type SearchComponentProps = {};
+type SearchComponentState = { searchValue: string  , addedText: string};
 export default SearchComponent;

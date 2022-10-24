@@ -4,13 +4,13 @@ import SearchComponent from '../search-component/search-component';
 import CounterComponent from '../counter-component/counter-component';
 import ToggleComponent from '../toggle-component/toggle-component';
 
-class FromContainer extends React.Component {
-  constructor(props) {
+class FormContainer extends React.Component<FormContainerPops, FormContainerState> {
+  constructor(props: FormContainerPops) {
     super(props);
     this.state = { isSearchVisible: true };
   }
 
-  onToggleChange = (newState) => this.setState({ isSearchVisible: newState });
+  onToggleChange = (newState: boolean) => this.setState({ isSearchVisible: newState });
 
   render() {
     const { isSearchVisible } = this.state;
@@ -24,4 +24,8 @@ class FromContainer extends React.Component {
     );
   }
 }
-export default FromContainer;
+
+type FormContainerPops = {};
+type FormContainerState = { isSearchVisible: boolean};
+
+export default FormContainer;

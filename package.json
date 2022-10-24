@@ -23,8 +23,7 @@
     "build:dev": "webpack --env NODE_ENV=development  --progress --watch",
     "build:prod": "webpack --env NODE_ENV=production  --progress",
     "start": "cross-env NODE_ENV=development webpack serve --progress --profile --port 9000",
-    "test": "jest",
-    "tscheck": "tsc"
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
