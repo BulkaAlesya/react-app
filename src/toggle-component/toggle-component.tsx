@@ -1,7 +1,7 @@
 import React from 'react';
 import './toggle.css';
 
-class ToggleComponent extends React.PureComponent {
+class ToggleComponent extends React.PureComponent<{onToggleChange: ()=> {}}> {
   render() {
     const { onToggleChange } = this.props;
     return (
