@@ -7,7 +7,7 @@ import ErrorBoundary from './components/common/ErrorHandler/ErrorBoundary';
 
 function App() {
   return (
-    <div>
+    <>
       <ErrorBoundary>
         <HeaderComponent />
         <MenuComponent></MenuComponent>
@@ -15,7 +15,7 @@ function App() {
       <ErrorBoundary>
       <BodyContainerComponent></BodyContainerComponent>
       </ErrorBoundary>
-    </div>
+    </>
   );
 }
 export default App;

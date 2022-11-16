@@ -28,13 +28,13 @@ const MenuComponent = () => {
   ));
 
   return (
-    <div>
+    <>
       <MenuContainer>
         <MenuPagePanel>
         { itemList}
         </MenuPagePanel>
         <ConfigurationPanel>
-          <span> Sort By</span>
+          <span> Sort By </span>
           <DropdownComponent
             itemsList={SortingConfigItem.asList()}
             selected={selectedSortingType}
@@ -43,7 +43,7 @@ const MenuComponent = () => {
         </ConfigurationPanel>
       </MenuContainer>
       <Separator></Separator>
-    </div>
+    </>
   );
 };
 export default MenuComponent;
