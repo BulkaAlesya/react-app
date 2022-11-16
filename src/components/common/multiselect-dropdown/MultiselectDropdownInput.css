@@ -1,0 +1,6 @@
+.dropdown-collapse-panel {
+  width: 50%;
+  position: absolute;
+  color: #424242;
+  z-index: 1000;
+}

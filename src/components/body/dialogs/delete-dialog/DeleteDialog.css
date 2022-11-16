@@ -1,0 +1,7 @@
+.add-edit-button-panel {
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  justify-content: end;
+  width: 90%;
+}

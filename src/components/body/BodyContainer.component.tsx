@@ -9,12 +9,12 @@ const BodyContainerComponent = () => {
     (<MovieCardComponent key = {movie.name} movie = {movie}></MovieCardComponent>)
   ));
   return (
-    <div> 
+    <> 
       <MovieCounter> <b>{movieElements.length}</b> movies found</MovieCounter> 
       <BodyBlock>
         { movieElements }
       </BodyBlock>
       <FooterComponent></FooterComponent>
-    </div>);
+    </>);
 }
 export default BodyContainerComponent;
