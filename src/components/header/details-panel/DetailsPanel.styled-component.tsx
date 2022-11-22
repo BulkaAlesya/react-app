@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { MoviePoster } from '../../body/movie-card/MovieCard.styled-components';
 import PropTypes from 'prop-types';
 import { HeaderLabel } from '../header.styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const MovieDetailsPoster = styled(MoviePoster)`
   width: 240px;
@@ -41,5 +42,17 @@ export const DetailsNameLabel = styled(HeaderLabel)`
     font-size: 10px;
     font-weight: 200;
   }
+`;
+export const SearchIcon = styled(FontAwesomeIcon)`
+  color: #f65261;
+  position: absolute;
+  right: 3%;
+  font-size: 20px;
+  top: 15px;
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+
 `;
 

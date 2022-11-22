@@ -29,7 +29,6 @@ const MenuComponent = () => {
       onClick={() => onActivePageChanged(i)}>{menuItem.pageName} 
     </MenuPageItem>
   ));
-
   return (
     <>
       <MenuContainer>

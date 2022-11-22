@@ -9,13 +9,13 @@ import { LogoTitle } from './logo/NetflixLogo.component';
 const HeaderComponent = () => {
 
   const [addDialogOpened, openDialog] = useState(false);
-  const selectedContext = useContext(HeaderContext);
-
-  return ( selectedContext 
-    ? <DetailsPanel selected= {selectedContext}></DetailsPanel>
+  const {selected, updateSelected} = useContext(HeaderContext);
+  console.log(selected);
+  return ( selected 
+    ? <DetailsPanel selected= {selected} goBack={updateSelected}></DetailsPanel>
     : <Background>
       <LogoTitle></LogoTitle>
-      <AddButton onClick={() => openDialog(true)}> + add movie </AddButton>
+        <AddButton onClick={() => openDialog(true)}> + add movie </AddButton>
       <HeaderLabel> find your movie </HeaderLabel>
       <SearchFormContainer>
         <SearchInput widthPercent={60} placeholder="What do you want to watch?"></SearchInput>

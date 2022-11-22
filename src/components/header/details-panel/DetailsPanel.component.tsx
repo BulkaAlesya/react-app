@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Movie } from '../../body/movie-list';
 import './DetailsPanel.css';
-import { DetailsNameLabel, MovieDetailsPoster, RateCircle } from './DetailsPanel.styled-component';
+import { DetailsNameLabel, MovieDetailsPoster, RateCircle, SearchIcon } from './DetailsPanel.styled-component';
 import { LogoTitle } from '../logo/NetflixLogo.component';
-import { AddButton } from '../header.styled-components';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const DetailsPanel = ({ selected }) => {
+const DetailsPanel = ({ selected, goBack }) => {
 
   const conversMinutesToHours = (minutes: number): string => `${Math.floor(minutes/60)}h${minutes%60}min`;
   return (
     <div className="details-panel">
       <LogoTitle></LogoTitle>
-      <AddButton> + add movie </AddButton>
+      <SearchIcon icon={faSearch} onClick={() => goBack(null)}> </SearchIcon>
       <div className="details-panel-content">
         <MovieDetailsPoster poster={selected.poster}></MovieDetailsPoster>
         <div className="details-right-column">
@@ -40,4 +40,5 @@ export default DetailsPanel;
 
 DetailsPanel.propTypes = {
   selected: PropTypes.instanceOf(Movie),
+  goBack: PropTypes.func,
 }

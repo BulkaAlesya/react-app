@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 import { ActionButton, CustomInput } from '../common/common.styled-components';
 
@@ -60,3 +61,4 @@ export const HeaderLabel = styled.div`
   top: 110px;
   left: 200px;
 `;
+

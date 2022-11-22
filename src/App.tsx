@@ -9,10 +9,11 @@ export const HeaderContext = React.createContext(null);
 
 function App() {
   const [selected, updateSelected] = useState(null);
+
   return (
     <>
       <ErrorBoundary>
-        <HeaderContext.Provider value={selected}>
+        <HeaderContext.Provider value={{ selected, updateSelected }}>
           <HeaderComponent />
         </HeaderContext.Provider>
         <MenuComponent></MenuComponent>
