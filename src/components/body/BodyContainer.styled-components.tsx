@@ -5,14 +5,14 @@ export const BodyBlock = styled.div`
   width: 75%;
   left: 15%;
   height: 400px;
-  top: 415px;
+  top: 445px;
   display: flex;
   justify-content: space-between;
 `;
 
 export const MovieCounter = styled.div`
   position: absolute;
-  top: 380px;
+  top: 420px;
   width: 75%;
   left: 15%;
   font-family: 'Quicksand', sans-serif;

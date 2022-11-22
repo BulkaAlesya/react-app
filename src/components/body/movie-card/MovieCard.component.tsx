@@ -6,14 +6,14 @@ import AddDialogComponent from '../dialogs/add-dialog/AddDialog.component';
 import ModalWindow from '../../common/modal-window/Modal.component';
 import DeleteDialogComponent from '../dialogs/delete-dialog/DeleteDialog.components';
 
-const MovieCardComponent = ({ movie }) => {
+const MovieCardComponent = ({ movie, onClick }) => {
 
   const [isActionMenuOpened, updateActionMenuVisability] = useState(false);
   const [editDialogOpened, openDialog] = useState(false);
   const [deleteDialogOpened, openDeleteDialog] = useState(false);
 
   return (
-    <Card>
+    <Card onClick={()=> onClick(movie)}>
       <MoviePoster poster={movie.poster}>
         <div >
           <div id={movie.id} className="close-icon-wrapper" onClick = {() => updateActionMenuVisability(true)}><CloseIcon icon={faEllipsisV}></CloseIcon></div>
@@ -54,5 +54,6 @@ const MovieCardComponent = ({ movie }) => {
 export default MovieCardComponent;
 
 MovieCardComponent.propTypes = {
-  movie: PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
 }

@@ -1,0 +1,37 @@
+.details-panel {
+  position: absolute;
+  height: 420px;
+  width: 75%;
+  left: 15%;
+}
+
+.details-panel-content {
+  display:flex;
+}
+.poster {
+  position: relative;
+  height: 250px;
+  width: 100px;
+  margin-left: 50px;
+  flex: 0.4;
+}
+.details-right-column {
+  flex: 1;
+  padding-left: 50px;
+}
+.details-header {
+  display: flex;
+  height: 80px;
+}
+.subtitle-panel > span {
+  color: #f65261;
+  font-weight: 200;
+  font-size: 20px;
+  margin-right: 100px;
+}
+.description-panel {
+  color: #ffffff61;
+  font-size: 16px;
+  margin-top: 50px;
+  width: auto;
+}

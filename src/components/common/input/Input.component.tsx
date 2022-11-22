@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CustomInput } from '../common.styled-components';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -25,10 +25,11 @@ const Input = styled(CustomInput)`
 `;
 
 const InputComponent = ({value, title, placeholder, widthPercent, type }) => {
+  const [inputValue, onValueChange] = useState(value);
   return (
     <>
       <InputTitle> {title} </InputTitle>
-      <Input value={value} widthPercent={widthPercent} type={type} placeholder={placeholder}/>
+      <Input value={inputValue} widthPercent={widthPercent} type={type} placeholder={placeholder} onChange={e => onValueChange(e.target.value)}/>
     </>
   );
 }

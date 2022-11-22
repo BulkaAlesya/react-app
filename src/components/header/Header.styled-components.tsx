@@ -3,9 +3,9 @@ import { ActionButton, CustomInput } from '../common/common.styled-components';
 
 export const Background = styled.div`
   position: absolute;
-  top: 20px;
-  height: 320px;
   width: 75%;
+  top: 20px;
+  height: 340px;
   left: 15%;
   background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://dailysuperheroes.com/wp-content/uploads/2019/09/Marvel-posters.jpg");
   background-size: cover;

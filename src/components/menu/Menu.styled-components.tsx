@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export const MenuContainer = styled.div`
   width: 75%;
@@ -9,7 +9,7 @@ export const MenuContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  top: 340px;
+  top: 370px;
 `;
 export const MenuPagePanel = styled.div`
   width: 40%;
@@ -31,7 +31,7 @@ export const MenuPageItem = styled.button`
   }
 `;
 MenuPageItem.propTypes = {
-  active: propTypes.boolean
+  active: PropTypes.bool
 }
 
 export const ConfigurationPanel = styled.div`
@@ -53,7 +53,7 @@ export const Separator = styled.div`
   left: 15%;
   height: 3px;
   background-color: #000000;
-  top: 340px;
+  top: 370px;
   position: relative;
 `;
 
