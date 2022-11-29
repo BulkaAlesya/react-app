@@ -8,6 +8,7 @@ export const BodyBlock = styled.div`
   top: 445px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const MovieCounter = styled.div`

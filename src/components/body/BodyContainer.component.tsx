@@ -1,23 +1,34 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import FooterComponent from '../footer/Footer.component';
+import React, { useState } from 'react';
+
 import { BodyBlock, MovieCounter } from './BodyContainer.styled-components';
 import MovieCardComponent from './movie-card/MovieCard.component';
-import { Movies } from './movie-list';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { fetchAllMovies } from '../api/reducer';
+import { store } from '../api/configureStore';
 
 const BodyContainerComponent = ({onSelectedUpdate}) => {
-  const movieElements = Movies.map((movie => 
-    (<MovieCardComponent key = {movie.name} movie = {movie} onClick={(m) => onSelectedUpdate(m)}>
+  const dispatch = useDispatch();
+  const [movieElements, updateMovieElements] = useState([]);
+  store.subscribe(() => {
+    updateMovieElements(
+      store.getState().value.map((movie) => (
+        <MovieCardComponent key = {movie.id} movie = {movie} onClick={(m) => onSelectedUpdate(m)}>
+        </MovieCardComponent>
+      )));
+  });
 
-    </MovieCardComponent>)
-  ));
+  useEffect(() => {
+    dispatch(fetchAllMovies());
+  }, [dispatch]);
+
   return (
     <> 
       <MovieCounter> <b>{movieElements.length}</b> movies found</MovieCounter> 
       <BodyBlock>
         { movieElements }
       </BodyBlock>
-      <FooterComponent></FooterComponent>
     </>);
 }
 export default BodyContainerComponent;

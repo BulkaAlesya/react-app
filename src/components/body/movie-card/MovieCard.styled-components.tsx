@@ -6,6 +6,7 @@ export const Card = styled.div`
   width: 315px;
   left: 15%;
   height: 470px;
+  margin-top: 30px;
 `;
 
 export const MoviePoster = styled.div`

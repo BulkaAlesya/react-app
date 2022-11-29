@@ -65,6 +65,7 @@ const MultiselectDropdownComponent = ({value, title, placeholder, widthPercent, 
   };
   const itemsElements = items.map((i) => (
     <DropdownOption
+      key={i.value}
       value={i.value} 
       title={i.itemTitle} 
       isChecked={selectedItemsList.find((itm) => itm === i.value)} 

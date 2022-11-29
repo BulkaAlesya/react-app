@@ -10,7 +10,6 @@ const HeaderComponent = () => {
 
   const [addDialogOpened, openDialog] = useState(false);
   const {selected, updateSelected} = useContext(HeaderContext);
-  console.log(selected);
   return ( selected 
     ? <DetailsPanel selected= {selected} goBack={updateSelected}></DetailsPanel>
     : <Background>
