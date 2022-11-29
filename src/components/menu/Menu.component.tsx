@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import DropdownComponent from '../common/dropdown/Dropdown.component';
 import { MenuConfigItem } from './MenuConfigItem';
 import { ConfigurationPanel, MenuContainer, MenuPageItem, MenuPagePanel, Separator } from './Menu.styled-components';
@@ -18,6 +18,9 @@ const MenuComponent = () => {
     let newlist = list.map((itm, i) => ({...itm, isActive: i === index}));
     updateList(newlist);
   };
+  const onDropdownClick = useCallback((t) => {
+    updateDropdownSelected(t)
+  }, [selectedSortingType]);
 
   const itemList = list.map((menuItem, i) => (
     <MenuPageItem 
@@ -26,7 +29,6 @@ const MenuComponent = () => {
       onClick={() => onActivePageChanged(i)}>{menuItem.pageName} 
     </MenuPageItem>
   ));
-
   return (
     <>
       <MenuContainer>
@@ -36,9 +38,8 @@ const MenuComponent = () => {
         <ConfigurationPanel>
           <span> Sort By </span>
           <DropdownComponent
-            itemsList={SortingConfigItem.asList()}
             selected={selectedSortingType}
-            changeSelected={updateDropdownSelected}
+            changeSelected={onDropdownClick}
             ></DropdownComponent>
         </ConfigurationPanel>
       </MenuContainer>

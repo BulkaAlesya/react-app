@@ -1,12 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import FooterComponent from '../footer/Footer.component';
 import { BodyBlock, MovieCounter } from './BodyContainer.styled-components';
 import MovieCardComponent from './movie-card/MovieCard.component';
 import { Movies } from './movie-list';
 
-const BodyContainerComponent = () => {
+const BodyContainerComponent = ({onSelectedUpdate}) => {
   const movieElements = Movies.map((movie => 
-    (<MovieCardComponent key = {movie.name} movie = {movie}></MovieCardComponent>)
+    (<MovieCardComponent key = {movie.name} movie = {movie} onClick={(m) => onSelectedUpdate(m)}>
+
+    </MovieCardComponent>)
   ));
   return (
     <> 
@@ -18,3 +21,7 @@ const BodyContainerComponent = () => {
     </>);
 }
 export default BodyContainerComponent;
+
+BodyContainerComponent.propTypes = {
+  onSelectedUpdate: PropTypes.func,
+}

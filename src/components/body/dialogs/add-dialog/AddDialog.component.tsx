@@ -42,7 +42,7 @@ const AddDialogComponent = ({movie}) => {
           </MultiselectDropdownComponent>
         </div> 
         <div> 
-          <InputComponent value={movieObject.date} widthPercent={90} placeholder="Select Date" title="Year" type={"date"}></InputComponent>
+          <InputComponent value={movieObject.date.toString()} widthPercent={90} placeholder="Select Date" title="Year" type={"date"}></InputComponent>
           <InputComponent value={movieObject.rating} widthPercent={90} placeholder="7.8" title="Rating" type={"name"} ></InputComponent>
           <InputComponent value={movieObject.runtime} widthPercent={90} placeholder="minutes" title="Runtime" type={"name"} ></InputComponent>
         </div>

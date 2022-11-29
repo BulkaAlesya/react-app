@@ -24,17 +24,12 @@ export const DropdownIcon = styled(FontAwesomeIcon)`
 `;
 
 export const DropdownItemsContainer = styled.div<DropdownItemsContainerProps>`
-  display: ${props => props.isOpen ? 'block' : ' none'};
   position: absolute; 
   background-color: #424242;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 `;
-
-interface DropdownItemsContainerProps {
-  isOpen: boolean;
-}
 
 export const DropdownItem = styled.div`
   height: 20px;

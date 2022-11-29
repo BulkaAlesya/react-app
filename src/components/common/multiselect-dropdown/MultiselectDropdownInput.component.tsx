@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DropdownOption from './MultiselectDropdownOption.component';
 import './MultiselectDropdownInput.css';
+import useClickOutside from '../hooks/useclickOutside';
 
 export const InputTitle = styled.div`
   color: #f65261;
@@ -47,10 +48,12 @@ export const DropdownIcon = styled(FontAwesomeIcon)`
 `;
 
 const MultiselectDropdownComponent = ({value, title, placeholder, widthPercent, optionsList }) => {
-  const [isOpnened, updateVisability] = useState(false);
+  const [isOpened, updateVisibility] = useState(false);
   const [items, updateItems] = useState(optionsList);
   const [selectedItemsList, updateSelectedList] = useState(value);
+  const ref = useRef();
 
+  useClickOutside(ref, () => updateVisibility(false));
   const onSelectedLictChanged = (value) => {
     if (selectedItemsList.find(i => i === value)) {
       updateSelectedList(selectedItemsList.filter(i => i !== value));
@@ -61,7 +64,7 @@ const MultiselectDropdownComponent = ({value, title, placeholder, widthPercent, 
     updateItems(items.map(i => i.value === value ? ({...i, selected: !i.selected}) : i));
   };
   const itemsElements = items.map((i) => (
-    <DropdownOption 
+    <DropdownOption
       value={i.value} 
       title={i.itemTitle} 
       isChecked={selectedItemsList.find((itm) => itm === i.value)} 
@@ -71,13 +74,13 @@ const MultiselectDropdownComponent = ({value, title, placeholder, widthPercent, 
   return (
     <>
       <InputTitle> {title} </InputTitle>
-      <DropdownInput onClick= {()=> updateVisability(!isOpnened)} widthPercent={widthPercent}>
+      <DropdownInput onClick= {()=> updateVisibility(!isOpened)} widthPercent={widthPercent}>
         <DropdownValue> {selectedItemsList.join(', ').toString() || placeholder } </DropdownValue>
         <DropdownIcon icon={faSortDown}></DropdownIcon>
       </DropdownInput>
-      <div className="dropdown-collapse-panel">
+      <div ref={ref} className="dropdown-collapse-panel">
         {
-          isOpnened && itemsElements
+          isOpened && itemsElements
         }
       </div>
     </>
