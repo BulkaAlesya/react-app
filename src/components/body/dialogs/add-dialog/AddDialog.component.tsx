@@ -1,11 +1,13 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MultiselectDropdownComponent from '../../../common/multiselect-dropdown/MultiselectDropdownInput.component';
+
+import { store } from '../../../api/configureStore';
+import { ConfirmationButton, ResetButton } from '../../../common/common.styled-components';
 import { GenreItem } from '../../../common/input/GenreItemList';
 import InputComponent from '../../../common/input/Input.component';
-import PropTypes from 'prop-types';
-import { Movie} from '../../movie-list';
-import { ConfirmationButton, ResetButton } from '../../../common/common.styled-components';
+import MultiselectDropdownComponent from '../../../common/multiselect-dropdown/MultiselectDropdownInput.component';
+import { Movie } from '../../movie-list';
 import './AddDialog.css';
 
 const FormContainer = styled.div`
@@ -18,23 +20,22 @@ const FormContainer = styled.div`
   }
 `;
 const AddDialogComponent = ({movie}) => {
-  const genreList = GenreItem.asList();
   const [movieObject, updateValue] = useState(movie);
-
+  const genreList = GenreItem.getListOfItems(store.getState().value);
   return (
     <>
       <FormContainer>
         <div> 
-          <InputComponent widthPercent={90} title="Title" type={"name"} value={movieObject.name}></InputComponent>
+          <InputComponent widthPercent={90} title="Title" type={"name"} value={movieObject.title}></InputComponent>
           <InputComponent 
-            value={movieObject.url}
+            value={movieObject.poster_path}
             widthPercent={90} 
             placeholder="https://" 
             title="Movie url" 
             type={"name"} >
           </InputComponent>
           <MultiselectDropdownComponent 
-            value={movieObject.genre}
+            value={movieObject.genres}
             optionsList={genreList}
             placeholder="Select Genre"
             widthPercent={93}
@@ -42,12 +43,12 @@ const AddDialogComponent = ({movie}) => {
           </MultiselectDropdownComponent>
         </div> 
         <div> 
-          <InputComponent value={movieObject.date.toString()} widthPercent={90} placeholder="Select Date" title="Year" type={"date"}></InputComponent>
-          <InputComponent value={movieObject.rating} widthPercent={90} placeholder="7.8" title="Rating" type={"name"} ></InputComponent>
+          <InputComponent value={movieObject.release_date} widthPercent={90} placeholder="Select Date" title="Year" type={"date"}></InputComponent>
+          <InputComponent value={movieObject.vote_average} widthPercent={90} placeholder="7.8" title="Rating" type={"name"} ></InputComponent>
           <InputComponent value={movieObject.runtime} widthPercent={90} placeholder="minutes" title="Runtime" type={"name"} ></InputComponent>
         </div>
       </FormContainer>
-      <InputComponent value={movieObject.description} widthPercent={97} placeholder="" title="Description" type={"textarea"} ></InputComponent>
+      <InputComponent value={movieObject.tagline} widthPercent={97} placeholder="" title="Description" type={"textarea"} ></InputComponent>
       <div className="add-edit-button-panel">
         <ResetButton>Reset</ResetButton>
         <ConfirmationButton type="submit">Submit</ConfirmationButton>
@@ -56,6 +57,7 @@ const AddDialogComponent = ({movie}) => {
   );
 }
 export default AddDialogComponent;
+
 AddDialogComponent.propTypes = {
   movie: PropTypes.object
 }

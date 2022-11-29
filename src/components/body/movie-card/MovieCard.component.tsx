@@ -1,20 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ActionMenuItem, Card, CloseIcon, MovieDetails, MovieGenreInfo, MovieInfo, MovieNameInfo, MoviePoster, YearChip } from './MovieCard.styled-components';
-import PropTypes from 'prop-types';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import AddDialogComponent from '../dialogs/add-dialog/AddDialog.component';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import ModalWindow from '../../common/modal-window/Modal.component';
+import AddDialogComponent from '../dialogs/add-dialog/AddDialog.component';
 import DeleteDialogComponent from '../dialogs/delete-dialog/DeleteDialog.components';
+import { ActionMenuItem, Card, CloseIcon, MovieDetails, MovieGenreInfo, MovieInfo, MovieNameInfo, MoviePoster, YearChip } from './MovieCard.styled-components';
 
 const MovieCardComponent = ({ movie, onClick }) => {
 
   const [isActionMenuOpened, updateActionMenuVisability] = useState(false);
   const [editDialogOpened, openDialog] = useState(false);
   const [deleteDialogOpened, openDeleteDialog] = useState(false);
-
   return (
     <Card onClick={()=> onClick(movie)}>
-      <MoviePoster poster={movie.poster}>
+      <MoviePoster poster={movie.poster_path}>
         <div >
           <div id={movie.id} className="close-icon-wrapper" onClick = {() => updateActionMenuVisability(true)}><CloseIcon icon={faEllipsisV}></CloseIcon></div>
           {
@@ -28,10 +27,10 @@ const MovieCardComponent = ({ movie, onClick }) => {
       </MoviePoster>
       <MovieDetails>
         <MovieInfo>
-          <MovieNameInfo> {movie.name} </MovieNameInfo>
-          <MovieGenreInfo> {movie.genre.join(' & ')} </MovieGenreInfo>
+          <MovieNameInfo> {movie.title} </MovieNameInfo>
+          <MovieGenreInfo> {movie.genres.join(' & ')} </MovieGenreInfo>
         </MovieInfo>
-        <YearChip> {movie.year}</YearChip>
+        <YearChip> {movie.release_date.split('-')[0]}</YearChip>
       </MovieDetails>
       <ModalWindow
         opened = {editDialogOpened}

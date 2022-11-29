@@ -6,7 +6,7 @@ import { faCheckSquare, faSortDown, faSquare } from '@fortawesome/free-solid-svg
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Option = styled.div`
-  width: 93%;
+  width: 100%;
   height: 40px;
   background-color: #1a1a1a;
   color: #FFFFFF96;

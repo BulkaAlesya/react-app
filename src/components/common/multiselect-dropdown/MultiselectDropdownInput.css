@@ -3,4 +3,6 @@
   position: absolute;
   color: #424242;
   z-index: 1000;
+  height: 200px;
+  overflow: scroll;
 }
